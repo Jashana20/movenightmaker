@@ -3,6 +3,7 @@ import "./App.css";
 import Search from "./components/Search";
 import MovieList from "./components/MovieList";
 import MovieDropDown from "./components/MovieDropDown";
+import Nav from "./components/Nav";
 
 const BASE_URL =
   "https://api.themoviedb.org/3/search/movie?api_key=d844c142ad09a263188aad1cdf54294c&language=en-US&query=";
@@ -28,7 +29,6 @@ class App extends React.Component {
 
   handleGenre = (e) => {
     this.setState({ selectedGenre: e.target.value });
-    this.genreFilter();
   };
 
   handleSearch = (e) => {
@@ -42,31 +42,34 @@ class App extends React.Component {
   };
 
   movieFilter = () => {
-    const filteredMovies = this.state.movies.filter((movie) => {
-      const val = this.state.genres.filter((genre) =>
-        movie.genre_ids.includes(genre)
-      );
-      return val.length > 0 ? true : false;
-    });
-    console.log(filteredMovies);
-    return this.state.movies;
+    if (this.state.selectedGenre.length > 0) {
+      const filteredMovies = this.state.movies.filter((movie) => {
+        return movie.genre_ids.includes(parseInt(this.state.selectedGenre));
+      });
+      return filteredMovies.length > 0 ? filteredMovies : this.state.movies;
+    } else {
+      return this.state.movies;
+    }
   };
 
   render() {
     return (
-      <div className="container">
-        <h1 id="site-title">Movie Night Maker</h1>
-        <Search
-          search={this.state.search}
-          handleSearch={this.handleSearch}
-          searchMovies={this.searchMovies}
-        />
-        <MovieDropDown
-          genres={this.state.genres}
-          selectedGenre={this.state.selectedGenre}
-          handleGenre={this.handleGenre}
-        />
-        <MovieList movies={this.movieFilter} />
+      <div>
+        <Nav />
+        <div className="container">
+          <h1 id="site-title">Movie Night Maker</h1>
+          <Search
+            search={this.state.search}
+            handleSearch={this.handleSearch}
+            searchMovies={this.searchMovies}
+          />
+          <MovieDropDown
+            genres={this.state.genres}
+            selectedGenre={this.state.selectedGenre}
+            handleGenre={this.handleGenre}
+          />
+          <MovieList movies={this.movieFilter} />
+        </div>
       </div>
     );
   }
