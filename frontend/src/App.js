@@ -41,9 +41,15 @@ class App extends React.Component {
       .then((json) => this.setState({ movies: json.results }));
   };
 
-  genreFilter = () => {
-    const filteredArr = this.state.movies.map((movie) => movie.genre_ids);
-    console.log(filteredArr);
+  movieFilter = () => {
+    const filteredMovies = this.state.movies.filter((movie) => {
+      const val = this.state.genres.filter((genre) =>
+        movie.genre_ids.includes(genre)
+      );
+      return val.length > 0 ? true : false;
+    });
+    console.log(filteredMovies);
+    return this.state.movies;
   };
 
   render() {
@@ -60,7 +66,7 @@ class App extends React.Component {
           selectedGenre={this.state.selectedGenre}
           handleGenre={this.handleGenre}
         />
-        <MovieList movies={this.state.movies} />
+        <MovieList movies={this.movieFilter} />
       </div>
     );
   }
