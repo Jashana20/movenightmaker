@@ -54,7 +54,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <Nav />
         <div className="container">
           <h1 id="site-title">Movie Night Maker</h1>

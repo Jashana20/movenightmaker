@@ -18,3 +18,34 @@ code {
   width: 1200px;
   margin: auto;
 }
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 6vh;
+  background-color: #5d4954;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+nav .logo {
+  font-size: 2rem;
+}
+
+nav ul {
+  list-style: none;
+  width: 40rem;
+  display: flex;
+  flex-direction: row;
+}
+
+nav ul li {
+  padding: 2rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
