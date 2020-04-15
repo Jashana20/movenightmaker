@@ -3,7 +3,7 @@ import React from "react";
 class MovieDropDown extends React.Component {
   render() {
     return (
-      <div>
+      <div className="dropdown-container">
         <h3>Filter Movies by Genre</h3>
         <select
           value={this.props.selectedGenre}

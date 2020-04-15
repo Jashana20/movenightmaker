@@ -57,7 +57,7 @@ class App extends React.Component {
       <div className="app">
         <Nav />
         <div className="container">
-          <h1 id="site-title">Movie Night Maker</h1>
+          <h1 class="site-title">Movie Night Maker</h1>
           <Search
             search={this.state.search}
             handleSearch={this.handleSearch}

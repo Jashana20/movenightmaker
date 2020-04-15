@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 class MovieList extends React.Component {
   render() {
     return (
-      <div>
+      <div className="card-container">
         {this.props.movies().length > 0
           ? this.props
               .movies()
