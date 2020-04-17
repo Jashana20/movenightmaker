@@ -5,7 +5,7 @@ class MovieList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="card-container">
         {this.props.movies().length > 0
           ? this.props
               .movies()
@@ -13,7 +13,7 @@ class MovieList extends React.Component {
               <MovieCard 
               key={movie.id} 
               movie={movie} 
-              name={this.props.name} 
+              name={this.props.playlistName} 
               handlePlaylistForm={this.props.handlePlaylistForm}
               createPlaylists={this.props.createPlaylists} 
               playlists={this.props.playlists} 

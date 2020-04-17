@@ -9,10 +9,10 @@ export default class Nav extends Component {
         </div>
         <ul>
           <li>
-            <a href="#">Sign In</a>
+            <a href="google.com">Lists </a>
           </li>
           <li>
-            <a href="#">Lists</a>
+            <a href="google.com">Sign Out </a>
           </li>
         </ul>
       </nav>
