@@ -9,9 +9,6 @@ export default class Nav extends Component {
         </div>
         <ul>
           <li>
-            <a href="google.com">Lists </a>
-          </li>
-          <li>
             <a href="google.com">Sign Out </a>
           </li>
         </ul>
